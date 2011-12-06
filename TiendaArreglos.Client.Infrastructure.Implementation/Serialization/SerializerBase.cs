@@ -2,8 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using TiendaArreglos.Client.Infrastructure.Interface.Serialization;
 
-namespace TiendaArreglos.Client.Infrastructure.Serialization
+namespace TiendaArreglos.Client.Infrastructure.Implementation.Serialization
 {
     public class SerializerBase<T> : ISerializer<T>
     {
