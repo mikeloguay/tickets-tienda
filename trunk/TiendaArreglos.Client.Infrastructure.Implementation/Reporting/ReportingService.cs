@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using TiendaArreglos.Client.Infrastructure.Interface.Reporting;
 
-namespace TiendaArreglos.Client.Infrastructure.Reporting
+namespace TiendaArreglos.Client.Infrastructure.Implementation.Reporting
 {
     public class ReportingService : IReportingService
     {

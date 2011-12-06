@@ -3,20 +3,29 @@ using Microsoft.Practices.Prism.ViewModel;
 using System;
 using System.Linq;
 using System.Windows.Input;
-using TiendaArreglos.Client.Infrastructure.Reporting;
-using TiendaArreglos.Client.Infrastructure.Serialization;
-using TiendaArreglos.Client.Wpf.Serialization;
+using TiendaArreglos.Client.DiContainer;
+using TiendaArreglos.Client.Infrastructure.Implementation.Reporting;
+using TiendaArreglos.Client.Infrastructure.Implementation.Serialization;
+using TiendaArreglos.Client.Infrastructure.Interface.Reporting;
+using TiendaArreglos.Client.Infrastructure.Interface.Serialization;
+using TiendaArreglos.Client.Model;
 
 namespace TiendaArreglos.Client.Wpf.ViewModels
 {
     public class MainWindowViewModel : NotificationObject
     {
         private const string TIENDA_ARREGLOS_CONFIG_PATH = @"Config\TiendaArreglosConfig.xml";
+
         private int _lastPrintedNumber;
+
         private string _numberOfTicketsToPrint;
+
         private IReportingService _reportingService;
+
         private ISerializer<TiendaArreglosConfig> _serializer;
+
         private TiendaArreglosConfig _tiendaArreglosConfig;
+
         public MainWindowViewModel()
         {
             InitializeServices();
@@ -55,6 +64,7 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
             }
         }
         public ICommand PrintCommand { get; set; }
+
         public bool CanPrint()
         {
             int temp;
@@ -76,6 +86,10 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
         private void InitializeServices()
         {
+            // TODO: Enable container and remove implementation project references
+            //_serializer = (ISerializer<TiendaArreglosConfig>)Container.UnityContainer.Resolve(typeof(ISerializer<TiendaArreglosConfig>), "ISerializer<TiendaArreglosConfig>");
+            //_reportingService = (IReportingService)Container.UnityContainer.Resolve(typeof(IReportingService), "IReportingService");
+
             _serializer = new SerializerBase<TiendaArreglosConfig>();
             _reportingService = new ReportingService();
         }

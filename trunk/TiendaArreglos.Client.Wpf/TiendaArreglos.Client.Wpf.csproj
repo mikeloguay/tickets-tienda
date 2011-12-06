@@ -39,6 +39,10 @@
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\External\Microsoft\Prism\Desktop\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Microsoft\Prism\Desktop\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -58,7 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Serialization\TiendaArreglosConfig.cs" />
     <Page Include="Views\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,9 +110,21 @@
     <Resource Include="Images\Logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TiendaArreglos.Client.Infrastructure\TiendaArreglos.Client.Infrastructure.csproj">
+    <ProjectReference Include="..\TiendaArreglos.Client.DiContainer\TiendaArreglos.Client.DiContainer.csproj">
+      <Project>{C11A4FA8-9A57-4D34-87C7-2CF839F11E77}</Project>
+      <Name>TiendaArreglos.Client.DiContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TiendaArreglos.Client.Infrastructure.Implementation\TiendaArreglos.Client.Infrastructure.Implementation.csproj">
+      <Project>{EF38443D-3A7C-4017-B7F2-C3276F9E1511}</Project>
+      <Name>TiendaArreglos.Client.Infrastructure.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TiendaArreglos.Client.Infrastructure.Interface\TiendaArreglos.Client.Infrastructure.Interface.csproj">
       <Project>{5C239144-43C1-4CA2-83C4-081A79C3598F}</Project>
-      <Name>TiendaArreglos.Client.Infrastructure</Name>
+      <Name>TiendaArreglos.Client.Infrastructure.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TiendaArreglos.Client.Model\TiendaArreglos.Client.Model.csproj">
+      <Project>{FEFFA4C8-A1F3-4560-A9D4-AD47E6306658}</Project>
+      <Name>TiendaArreglos.Client.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
