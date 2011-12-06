@@ -43,8 +43,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\Microsoft\Prism\Desktop\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,6 +67,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Reporting\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
     <Page Include="Views\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,9 +105,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Tickets.rdlc" />
     <None Include="Config\TiendaArreglosConfig.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\TiendaArreglos.Client.Model.Ticket.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -110,10 +126,6 @@
     <Resource Include="Images\Logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TiendaArreglos.Client.DiContainer\TiendaArreglos.Client.DiContainer.csproj">
-      <Project>{C11A4FA8-9A57-4D34-87C7-2CF839F11E77}</Project>
-      <Name>TiendaArreglos.Client.DiContainer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TiendaArreglos.Client.Infrastructure.Implementation\TiendaArreglos.Client.Infrastructure.Implementation.csproj">
       <Project>{EF38443D-3A7C-4017-B7F2-C3276F9E1511}</Project>
       <Name>TiendaArreglos.Client.Infrastructure.Implementation</Name>

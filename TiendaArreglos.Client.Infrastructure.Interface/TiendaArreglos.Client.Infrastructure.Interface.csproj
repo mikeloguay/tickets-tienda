@@ -40,9 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ITicketRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporting\IReportingService.cs" />
     <Compile Include="Serialization\ISerializer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TiendaArreglos.Client.Model\TiendaArreglos.Client.Model.csproj">
+      <Project>{FEFFA4C8-A1F3-4560-A9D4-AD47E6306658}</Project>
+      <Name>TiendaArreglos.Client.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

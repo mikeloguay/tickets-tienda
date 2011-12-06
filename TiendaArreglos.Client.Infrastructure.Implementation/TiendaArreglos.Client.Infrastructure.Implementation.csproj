@@ -43,11 +43,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporting\ReportingService.cs" />
     <Compile Include="Serialization\SerializerBase.cs" />
+    <Compile Include="TicketRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TiendaArreglos.Client.Infrastructure.Interface\TiendaArreglos.Client.Infrastructure.Interface.csproj">
       <Project>{5C239144-43C1-4CA2-83C4-081A79C3598F}</Project>
       <Name>TiendaArreglos.Client.Infrastructure.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TiendaArreglos.Client.Model\TiendaArreglos.Client.Model.csproj">
+      <Project>{FEFFA4C8-A1F3-4560-A9D4-AD47E6306658}</Project>
+      <Name>TiendaArreglos.Client.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,6 +5,6 @@ namespace TiendaArreglos.Client.Infrastructure.Interface.Reporting
 {
     public interface IReportingService
     {
-        int Print(int numberOfTickets);
+        int Print(int startNumber, int numberOfTickets);
     }
 }
