@@ -28,12 +28,16 @@
             <TextBox Grid.Row="0" 
                      Grid.Column="1"
                      Name="NumberOfTicketsToPrintTextBox"
-                     TabIndex="1" />
+                     TabIndex="1"
+                     Text="{Binding NumberOfTicketsToPrint}"
+                     GotFocus="OnNumberOfTicketsToPrintTextBoxGotFocus" />
             <Label Grid.Row="1" 
                    Grid.Column="0"
                    Content="El ultimo ticket impreso fue el" />
             <TextBlock Grid.Row="1" 
-                       Grid.Column="1" />
+                       Grid.Column="1"
+                       Text="{Binding LastPrintedNumber}"
+                       VerticalAlignment="Center" />
             <Button Grid.Row="2" 
                     Grid.ColumnSpan="2" 
                     Content="Imprimir"
@@ -44,7 +48,7 @@
                     FontWeight="ExtraBold"
                     TabIndex="2"
                     IsDefault="True"
-                    Click="PrintButton_Click" />
+                    Command="{Binding PrintCommand}" />
             
         </Grid>
         

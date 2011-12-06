@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
-using TiendaArreglos.Client.Wpf.Serialization;
+using System.Windows.Controls;
+using System.Windows.Input;
+using TiendaArreglos.Client.Wpf.ViewModels;
 
 namespace TiendaArreglos.Client.Wpf.Views
 {
@@ -10,12 +12,22 @@ namespace TiendaArreglos.Client.Wpf.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string tiendaArreglosConfigPath = @"Config\TiendaArreglosConfig.xml";
-
         public MainWindow()
         {
             InitializeComponent();
-            InitializeFocus();
+            InitializeDataContext();
+            AttachEvents();
+        }
+
+        private void AttachEvents()
+        {
+            Loaded += OnMainWindowLoaded;
+            KeyUp += OnMainWindowKeyUp;
+        }
+
+        private void InitializeDataContext()
+        {
+            DataContext = new MainWindowViewModel();
         }
 
         private void InitializeFocus()
@@ -23,19 +35,27 @@ namespace TiendaArreglos.Client.Wpf.Views
             NumberOfTicketsToPrintTextBox.Focus();
         }
 
-        private void TestSerializeButton_Click(object sender, RoutedEventArgs e)
+        void OnMainWindowKeyUp(object sender, KeyEventArgs e)
         {
-            ISerializer<TiendaArreglosConfig> serializer = new SerializerBase<TiendaArreglosConfig>();
-            TiendaArreglosConfig tiendaArreglosConfig = serializer.DeserializeObject(tiendaArreglosConfigPath);
-
-            tiendaArreglosConfig.LastPrintedNumber++;
-
-            serializer.SerializeObject(tiendaArreglosConfig, tiendaArreglosConfigPath);
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
         }
 
-        private void PrintButton_Click(object sender, RoutedEventArgs e)
+        void OnMainWindowLoaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Printed!");
+            InitializeFocus();
+        }
+
+        private void OnNumberOfTicketsToPrintTextBoxGotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            if (textBox != null)
+            {
+                textBox.SelectAll();
+            }
         }
     }
 }
