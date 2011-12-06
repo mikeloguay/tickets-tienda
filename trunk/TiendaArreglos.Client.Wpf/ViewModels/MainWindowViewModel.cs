@@ -3,7 +3,6 @@ using Microsoft.Practices.Prism.ViewModel;
 using System;
 using System.Linq;
 using System.Windows.Input;
-using TiendaArreglos.Client.DiContainer;
 using TiendaArreglos.Client.Infrastructure.Implementation.Reporting;
 using TiendaArreglos.Client.Infrastructure.Implementation.Serialization;
 using TiendaArreglos.Client.Infrastructure.Interface.Reporting;
@@ -75,7 +74,7 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
         public void Print()
         {
-            LastPrintedNumber = _reportingService.Print(int.Parse(_numberOfTicketsToPrint));
+            LastPrintedNumber = _reportingService.Print(_lastPrintedNumber + 1, int.Parse(_numberOfTicketsToPrint));
             SaveLastPrintedNumber();
         }
 
@@ -86,10 +85,6 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
         private void InitializeServices()
         {
-            // TODO: Enable container and remove implementation project references
-            //_serializer = (ISerializer<TiendaArreglosConfig>)Container.UnityContainer.Resolve(typeof(ISerializer<TiendaArreglosConfig>), "ISerializer<TiendaArreglosConfig>");
-            //_reportingService = (IReportingService)Container.UnityContainer.Resolve(typeof(IReportingService), "IReportingService");
-
             _serializer = new SerializerBase<TiendaArreglosConfig>();
             _reportingService = new ReportingService();
         }

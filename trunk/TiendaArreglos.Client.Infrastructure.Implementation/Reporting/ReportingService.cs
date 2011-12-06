@@ -7,7 +7,7 @@ namespace TiendaArreglos.Client.Infrastructure.Implementation.Reporting
 {
     public class ReportingService : IReportingService
     {
-        public int Print(int numberOfTickets)
+        public int Print(int startNumber, int numberOfTickets)
         {
             Debug.WriteLine("Printing {0} tickets...", numberOfTickets);
 
