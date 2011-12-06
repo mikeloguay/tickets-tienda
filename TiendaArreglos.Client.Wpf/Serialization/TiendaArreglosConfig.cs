@@ -7,6 +7,6 @@ namespace TiendaArreglos.Client.Wpf.Serialization
         [XmlElement]
         public int LastPrintedNumber { get; set; }
         [XmlElement]
-        public int NumberOfTicketsPrinted { get; set; }
+        public int NumberOfTicketsToPrint { get; set; }
     }
 }

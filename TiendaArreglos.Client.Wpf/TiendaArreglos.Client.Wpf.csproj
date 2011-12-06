@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\External\Microsoft\Prism\Desktop\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,8 +58,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Serialization\ISerializer.cs" />
-    <Compile Include="Serialization\SerializerBase.cs" />
     <Compile Include="Serialization\TiendaArreglosConfig.cs" />
     <Page Include="Views\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -105,7 +106,12 @@
     </Content>
     <Resource Include="Images\Logo.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TiendaArreglos.Client.Infrastructure\TiendaArreglos.Client.Infrastructure.csproj">
+      <Project>{5C239144-43C1-4CA2-83C4-081A79C3598F}</Project>
+      <Name>TiendaArreglos.Client.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

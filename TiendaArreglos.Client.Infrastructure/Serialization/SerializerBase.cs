@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace TiendaArreglos.Client.Wpf.Serialization
+namespace TiendaArreglos.Client.Infrastructure.Serialization
 {
     public class SerializerBase<T> : ISerializer<T>
     {
