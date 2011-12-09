@@ -15,7 +15,7 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
         private int _lastPrintedNumber;
 
-        private string _numberOfTicketsToPrint;
+        private int _numberOfTicketsToPrint;
 
         private ISerializer<TiendaArreglosConfig> _serializer;
 
@@ -43,7 +43,7 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
                 }
             }
         }
-        public string NumberOfTicketsToPrint
+        public int NumberOfTicketsToPrint
         {
             get
             {
@@ -62,15 +62,12 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
         public bool CanPrint()
         {
-            int temp;
-
-            return !string.IsNullOrWhiteSpace(_numberOfTicketsToPrint) && int.TryParse(_numberOfTicketsToPrint,
-                out temp);
+            return true;
         }
 
         public void Print()
         {
-            Report report = new Report();
+            Report report = new Report(_lastPrintedNumber + 1, _lastPrintedNumber + _numberOfTicketsToPrint);
             report.Show();
 
             SaveLastPrintedNumber();
@@ -92,13 +89,13 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
             // Convert config values to view model values
             LastPrintedNumber = _tiendaArreglosConfig.LastPrintedNumber;
-            NumberOfTicketsToPrint = _tiendaArreglosConfig.NumberOfTicketsToPrint.ToString();
+            NumberOfTicketsToPrint = _tiendaArreglosConfig.NumberOfTicketsToPrint;
         }
 
         private void SaveLastPrintedNumber()
         {
-            _tiendaArreglosConfig.LastPrintedNumber = _lastPrintedNumber;
-            _tiendaArreglosConfig.NumberOfTicketsToPrint = int.Parse(_numberOfTicketsToPrint);
+            _tiendaArreglosConfig.LastPrintedNumber = _lastPrintedNumber + _numberOfTicketsToPrint;
+            _tiendaArreglosConfig.NumberOfTicketsToPrint = _numberOfTicketsToPrint;
             _serializer.SerializeObject(_tiendaArreglosConfig, TIENDA_ARREGLOS_CONFIG_PATH);
         }
     }

@@ -34,7 +34,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.98425in</Width>
+              <Width>1.75508in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -136,7 +136,7 @@
         </TablixRowHierarchy>
         <DataSetName>TicketsDataSet</DataSetName>
         <Height>1.2cm</Height>
-        <Width>2.5cm</Width>
+        <Width>4.45791cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -144,7 +144,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>3.42629in</Height>
     <Style />
   </Body>
   <Width>6.5in</Width>
