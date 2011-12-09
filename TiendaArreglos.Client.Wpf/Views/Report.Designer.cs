@@ -1,4 +1,4 @@
-﻿namespace TiendaArreglos.Client.Wpf.Reporting
+﻿namespace TiendaArreglos.Client.Wpf.Views
 {
     partial class Report
     {
@@ -37,7 +37,7 @@
             // 
             // TicketBindingSource
             // 
-            this.TicketBindingSource.DataSource = typeof(TiendaArreglos.Client.Model.Ticket);
+            this.TicketBindingSource.DataSource = typeof(TiendaArreglos.Client.Wpf.Model.Ticket);
             // 
             // ticketReportViewer
             // 
@@ -45,7 +45,7 @@
             reportDataSource1.Name = "TicketsDataSet";
             reportDataSource1.Value = this.TicketBindingSource;
             this.ticketReportViewer.LocalReport.DataSources.Add(reportDataSource1);
-            this.ticketReportViewer.LocalReport.ReportEmbeddedResource = "TiendaArreglos.Client.Wpf.Reporting.Tickets.rdlc";
+            this.ticketReportViewer.LocalReport.ReportEmbeddedResource = "TiendaArreglos.Client.Wpf.Reports.Tickets.rdlc";
             this.ticketReportViewer.Location = new System.Drawing.Point(0, 0);
             this.ticketReportViewer.Name = "ticketReportViewer";
             this.ticketReportViewer.Size = new System.Drawing.Size(284, 262);
@@ -59,7 +59,7 @@
             this.Controls.Add(this.ticketReportViewer);
             this.Name = "Report";
             this.Text = "Report";
-            this.Load += new System.EventHandler(this.Report_Load);
+            this.Load += new System.EventHandler(this.OnReportLoad);
             ((System.ComponentModel.ISupportInitialize)(this.TicketBindingSource)).EndInit();
             this.ResumeLayout(false);
 

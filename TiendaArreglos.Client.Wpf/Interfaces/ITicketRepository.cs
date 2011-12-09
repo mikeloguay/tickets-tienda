@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using TiendaArreglos.Client.Model;
+using TiendaArreglos.Client.Wpf.Model;
 
-namespace TiendaArreglos.Client.Infrastructure.Interface
+namespace TiendaArreglos.Client.Wpf.Interfaces
 {
     public interface ITicketRepository
     {

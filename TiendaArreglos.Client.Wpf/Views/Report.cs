@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using TiendaArreglos.Client.Infrastructure.Implementation;
-using TiendaArreglos.Client.Infrastructure.Interface;
+using TiendaArreglos.Client.Wpf.Implementations;
+using TiendaArreglos.Client.Wpf.Interfaces;
 
-namespace TiendaArreglos.Client.Wpf.Reporting
+namespace TiendaArreglos.Client.Wpf.Views
 {
     public partial class Report : Form
     {
@@ -17,7 +16,7 @@ namespace TiendaArreglos.Client.Wpf.Reporting
             _ticketRepository = new TicketRepository();
         }
 
-        private void Report_Load(object sender, EventArgs e)
+        private void OnReportLoad(object sender, EventArgs e)
         {
             TicketBindingSource.DataSource = _ticketRepository.GetTickets(100, 105);
             ticketReportViewer.RefreshReport();

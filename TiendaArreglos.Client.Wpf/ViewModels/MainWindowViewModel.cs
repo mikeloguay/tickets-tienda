@@ -1,13 +1,11 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.ViewModel;
 using System;
-using System.Linq;
 using System.Windows.Input;
-using TiendaArreglos.Client.Infrastructure.Implementation.Reporting;
-using TiendaArreglos.Client.Infrastructure.Implementation.Serialization;
-using TiendaArreglos.Client.Infrastructure.Interface.Reporting;
-using TiendaArreglos.Client.Infrastructure.Interface.Serialization;
-using TiendaArreglos.Client.Model;
+using TiendaArreglos.Client.Wpf.Implementations;
+using TiendaArreglos.Client.Wpf.Interfaces;
+using TiendaArreglos.Client.Wpf.Model;
+using TiendaArreglos.Client.Wpf.Views;
 
 namespace TiendaArreglos.Client.Wpf.ViewModels
 {
@@ -18,8 +16,6 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
         private int _lastPrintedNumber;
 
         private string _numberOfTicketsToPrint;
-
-        private IReportingService _reportingService;
 
         private ISerializer<TiendaArreglosConfig> _serializer;
 
@@ -74,7 +70,9 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
         public void Print()
         {
-            LastPrintedNumber = _reportingService.Print(_lastPrintedNumber + 1, int.Parse(_numberOfTicketsToPrint));
+            Report report = new Report();
+            report.Show();
+
             SaveLastPrintedNumber();
         }
 
@@ -86,7 +84,6 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
         private void InitializeServices()
         {
             _serializer = new SerializerBase<TiendaArreglosConfig>();
-            _reportingService = new ReportingService();
         }
 
         private void InitializeValues()

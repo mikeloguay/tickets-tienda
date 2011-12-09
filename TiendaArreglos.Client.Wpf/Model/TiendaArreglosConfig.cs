@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace TiendaArreglos.Client.Model
+namespace TiendaArreglos.Client.Wpf.Model
 {
     public class TiendaArreglosConfig
     {

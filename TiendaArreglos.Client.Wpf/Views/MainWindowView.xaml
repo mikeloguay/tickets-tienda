@@ -48,7 +48,7 @@
                     FontWeight="ExtraBold"
                     TabIndex="2"
                     IsDefault="True"
-                    Click="PrintButton_Click" />
+                    Command="{Binding PrintCommand}" />
             
         </Grid>
         
