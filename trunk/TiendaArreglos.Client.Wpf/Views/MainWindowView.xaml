@@ -29,14 +29,14 @@
                      Grid.Column="1"
                      Name="NumberOfTicketsToPrintTextBox"
                      TabIndex="1"
-                     Text="{Binding NumberOfTicketsToPrint}"
+                     Text="{Binding NumberOfTicketsToPrint, Mode=TwoWay}"
                      GotFocus="OnNumberOfTicketsToPrintTextBoxGotFocus" />
             <Label Grid.Row="1" 
                    Grid.Column="0"
                    Content="El ultimo ticket impreso fue el" />
             <TextBlock Grid.Row="1" 
                        Grid.Column="1"
-                       Text="{Binding LastPrintedNumber}"
+                       Text="{Binding LastPrintedNumber, Mode=TwoWay}"
                        VerticalAlignment="Center" />
             <Button Grid.Row="2" 
                     Grid.ColumnSpan="2" 
