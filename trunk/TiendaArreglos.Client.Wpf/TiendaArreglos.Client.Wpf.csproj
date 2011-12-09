@@ -36,28 +36,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.Prism">
+    <Reference Include="Microsoft.Practices.Prism, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\Microsoft\Prism\Desktop\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\Microsoft\Prism\Desktop\Microsoft.Practices.Unity.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -67,10 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Reporting\Report.cs">
+    <Compile Include="Implementations\SerializerBase.cs" />
+    <Compile Include="Implementations\TicketRepository.cs" />
+    <Compile Include="Interfaces\ISerializer.cs" />
+    <Compile Include="Interfaces\ITicketRepository.cs" />
+    <Compile Include="Model\Ticket.cs" />
+    <Compile Include="Model\TiendaArreglosConfig.cs" />
+    <Compile Include="Views\Report.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporting\Report.Designer.cs">
+    <Compile Include="Views\Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
     <Page Include="Views\MainWindowView.xaml">
@@ -105,10 +99,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporting\Report.resx">
+    <EmbeddedResource Include="Views\Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporting\Tickets.rdlc" />
+    <EmbeddedResource Include="Reports\Tickets.rdlc" />
     <None Include="Config\TiendaArreglosConfig.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -124,20 +118,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Images\Logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TiendaArreglos.Client.Infrastructure.Implementation\TiendaArreglos.Client.Infrastructure.Implementation.csproj">
-      <Project>{EF38443D-3A7C-4017-B7F2-C3276F9E1511}</Project>
-      <Name>TiendaArreglos.Client.Infrastructure.Implementation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TiendaArreglos.Client.Infrastructure.Interface\TiendaArreglos.Client.Infrastructure.Interface.csproj">
-      <Project>{5C239144-43C1-4CA2-83C4-081A79C3598F}</Project>
-      <Name>TiendaArreglos.Client.Infrastructure.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TiendaArreglos.Client.Model\TiendaArreglos.Client.Model.csproj">
-      <Project>{FEFFA4C8-A1F3-4560-A9D4-AD47E6306658}</Project>
-      <Name>TiendaArreglos.Client.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

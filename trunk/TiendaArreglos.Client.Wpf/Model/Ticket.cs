@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
 
-namespace TiendaArreglos.Client.Model
+namespace TiendaArreglos.Client.Wpf.Model
 {
     public class Ticket
     {

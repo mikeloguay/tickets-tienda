@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
 
-namespace TiendaArreglos.Client.Infrastructure.Interface.Serialization
+namespace TiendaArreglos.Client.Wpf.Interfaces
 {
     public interface ISerializer<T>
     {
