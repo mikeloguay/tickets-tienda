@@ -9,24 +9,43 @@ namespace TiendaArreglos.Client.Wpf.Implementations
     {
         public T DeserializeObject(string fileName)
         {
-            FileStream fs = new FileStream(fileName, FileMode.Open);
-            XmlSerializer x = new XmlSerializer(typeof(T));
-            T objectToDeserialize = (T)x.Deserialize(fs);
-            fs.Close();
+            FileStream fs = default(FileStream);
+            T objectToDeserialize;
+
+            try
+            {
+                fs = new FileStream(fileName, FileMode.Open);
+                XmlSerializer x = new XmlSerializer(typeof(T));
+                objectToDeserialize = (T)x.Deserialize(fs);
+            }
+            finally
+            {
+                fs.Close();
+            }
+
             return objectToDeserialize;
         }
 
         public void SerializeObject(T objectToSerialize, string fileName)
         {
-            // Create the XmlSerializer.
-            XmlSerializer s = new XmlSerializer(typeof(T));
+            TextWriter writer = default(TextWriter);
 
-            // To write the file, a TextWriter is required.
-            TextWriter writer = new StreamWriter(fileName);
+            try
+            {
+                // Create the XmlSerializer.
+                XmlSerializer s = new XmlSerializer(typeof(T));
 
-            // Serialize the object, and close the TextWriter.      
-            s.Serialize(writer, objectToSerialize);
-            writer.Close();
+                // To write the file, a TextWriter is required.
+                writer = new StreamWriter(fileName);
+
+                // Serialize the object, and close the TextWriter.      
+                s.Serialize(writer, objectToSerialize);
+                
+            }
+            finally
+            {
+                writer.Close();
+            }
         }
     }
 }
