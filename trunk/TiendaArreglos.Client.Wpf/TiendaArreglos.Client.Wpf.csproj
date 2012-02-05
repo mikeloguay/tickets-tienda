@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -121,7 +122,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\xsd.exe" "$(ProjectDir)Config\TiendaArreglosConfig.xsd" /classes /namespace:TiendaArreglos.Client.Wpf.Model /out:"$(ProjectDir)Model"
+    <PreBuildEvent>"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\xsd.exe" "$(ProjectDir)Config\TiendaArreglosConfig.xsd" /classes /namespace:TiendaArreglos.Client.Wpf.Model /out:"$(ProjectDir)Model"
 
 </PreBuildEvent>
   </PropertyGroup>

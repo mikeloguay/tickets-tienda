@@ -67,10 +67,19 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
         public void Print()
         {
-            Report report = new Report(_lastPrintedNumber + 1, _lastPrintedNumber + _numberOfTicketsToPrint);
-            report.Show();
+            Report report = default(Report);
 
-            SaveLastPrintedNumber();
+            try
+            {
+                report = new Report(_lastPrintedNumber + 1, _lastPrintedNumber + _numberOfTicketsToPrint);
+                report.ShowDialog();
+
+                SaveLastPrintedNumber();
+            }
+            finally
+            {
+                report.Dispose();
+            }
         }
 
         private void InitializeCommands()
