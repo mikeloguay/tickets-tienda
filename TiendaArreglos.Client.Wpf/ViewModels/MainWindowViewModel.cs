@@ -1,7 +1,7 @@
-﻿using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Prism.ViewModel;
-using System;
+﻿using System;
 using System.Windows.Input;
+using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.ViewModel;
 using TiendaArreglos.Client.Wpf.Implementations;
 using TiendaArreglos.Client.Wpf.Interfaces;
 using TiendaArreglos.Client.Wpf.Model;

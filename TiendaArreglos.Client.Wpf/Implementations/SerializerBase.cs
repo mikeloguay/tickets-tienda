@@ -40,7 +40,6 @@ namespace TiendaArreglos.Client.Wpf.Implementations
 
                 // Serialize the object, and close the TextWriter.      
                 s.Serialize(writer, objectToSerialize);
-                
             }
             finally
             {
