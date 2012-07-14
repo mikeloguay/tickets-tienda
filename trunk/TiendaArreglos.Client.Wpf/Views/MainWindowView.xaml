@@ -10,7 +10,7 @@
         </Grid.RowDefinitions>
         <Image Grid.Row="0"
                Source="/TiendaArreglos.Client.Wpf;component/Images/Logo.jpg" />
-        
+
         <Grid Grid.Row="1" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -41,17 +41,15 @@
             <Button Grid.Row="2" 
                     Grid.ColumnSpan="2" 
                     Content="Imprimir"
+                    Style="{StaticResource MainButtonStyle}"
                     Height="50"
                     Width="200"
                     Name="PrintButton"
-                    FontSize="20"
-                    FontWeight="ExtraBold"
                     TabIndex="2"
                     IsDefault="True"
                     Command="{Binding PrintCommand}" />
-            
+
         </Grid>
-        
 
     </Grid>
 </Window>
