@@ -20,8 +20,8 @@ namespace TiendaArreglos.Client.Wpf.Views
 
         private void AttachEvents()
         {
-            Loaded += OnMainWindowLoaded;
-            KeyUp += OnMainWindowKeyUp;
+            Loaded += LoadedHandler;
+            KeyUp += KeyUpHandler;
         }
 
         private void InitializeDataContext()
@@ -34,7 +34,7 @@ namespace TiendaArreglos.Client.Wpf.Views
             NumberOfTicketsToPrintTextBox.Focus();
         }
 
-        void OnMainWindowKeyUp(object sender, KeyEventArgs e)
+        void KeyUpHandler(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {
@@ -42,12 +42,12 @@ namespace TiendaArreglos.Client.Wpf.Views
             }
         }
 
-        void OnMainWindowLoaded(object sender, RoutedEventArgs e)
+        private void LoadedHandler(object sender, RoutedEventArgs e)
         {
             InitializeFocus();
         }
 
-        private void OnNumberOfTicketsToPrintTextBoxGotFocus(object sender, RoutedEventArgs e)
+        private void NumberOfTicketsToPrintTextBoxGotFocusHandler(object sender, RoutedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
 

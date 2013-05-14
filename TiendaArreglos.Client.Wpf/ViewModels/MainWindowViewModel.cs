@@ -11,14 +11,10 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 {
     public class MainWindowViewModel : NotificationObject
     {
-        private const string TiendaArreglosConfigPath = @"Config\TiendaArreglosConfig.xml";
-
+        private readonly string _tiendaArreglosConfigPath = @"Config\TiendaArreglosConfig.xml";
         private int _lastPrintedNumber;
-
         private int _numberOfTicketsToPrint;
-
         private ISerializer<TiendaArreglosConfig> _serializer;
-
         private TiendaArreglosConfig _tiendaArreglosConfig;
 
         public MainWindowViewModel()
@@ -62,7 +58,7 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
         public bool CanPrint()
         {
-            return true;
+            return NumberOfTicketsToPrint > 0;
         }
 
         public void Print()
@@ -94,7 +90,7 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
 
         private void InitializeValues()
         {
-            _tiendaArreglosConfig = _serializer.DeserializeObject(TiendaArreglosConfigPath);
+            _tiendaArreglosConfig = _serializer.DeserializeObject(_tiendaArreglosConfigPath);
 
             // Convert config values to view model values
             LastPrintedNumber = _tiendaArreglosConfig.LastPrintedNumber;
@@ -105,7 +101,7 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
         {
             _tiendaArreglosConfig.LastPrintedNumber = _lastPrintedNumber + _numberOfTicketsToPrint;
             _tiendaArreglosConfig.NumberOfTicketsToPrint = _numberOfTicketsToPrint;
-            _serializer.SerializeObject(_tiendaArreglosConfig, TiendaArreglosConfigPath);
+            _serializer.SerializeObject(_tiendaArreglosConfig, _tiendaArreglosConfigPath);
         }
     }
 }

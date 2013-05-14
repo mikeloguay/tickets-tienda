@@ -30,7 +30,7 @@
                      Name="NumberOfTicketsToPrintTextBox"
                      TabIndex="1"
                      Text="{Binding NumberOfTicketsToPrint, Mode=TwoWay}"
-                     GotFocus="OnNumberOfTicketsToPrintTextBoxGotFocus" />
+                     GotFocus="NumberOfTicketsToPrintTextBoxGotFocusHandler" />
             <Label Grid.Row="1" 
                    Grid.Column="0"
                    Content="El ultimo ticket impreso fue el" />
