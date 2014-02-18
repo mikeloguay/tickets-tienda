@@ -8,5 +8,6 @@ namespace TiendaArreglos.Client.Wpf
     /// </summary>
     public partial class App : Application
     {
+		// Cambio hecho en el trunk
     }
 }
