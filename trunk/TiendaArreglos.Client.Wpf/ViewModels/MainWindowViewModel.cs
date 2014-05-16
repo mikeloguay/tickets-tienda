@@ -71,6 +71,7 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
                 report.ShowDialog();
 
                 SaveLastPrintedNumber();
+                UpdateUI();
             }
             finally
             {
@@ -102,6 +103,12 @@ namespace TiendaArreglos.Client.Wpf.ViewModels
             _tiendaArreglosConfig.LastPrintedNumber = _lastPrintedNumber + _numberOfTicketsToPrint;
             _tiendaArreglosConfig.NumberOfTicketsToPrint = _numberOfTicketsToPrint;
             _serializer.SerializeObject(_tiendaArreglosConfig, _tiendaArreglosConfigPath);
+        }
+
+        private void UpdateUI()
+        {
+            LastPrintedNumber = _tiendaArreglosConfig.LastPrintedNumber;
+            NumberOfTicketsToPrint = _tiendaArreglosConfig.NumberOfTicketsToPrint;
         }
     }
 }
