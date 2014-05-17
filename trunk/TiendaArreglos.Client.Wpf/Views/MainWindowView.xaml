@@ -30,13 +30,15 @@
                      Name="NumberOfTicketsToPrintTextBox"
                      TabIndex="1"
                      Text="{Binding NumberOfTicketsToPrint, Mode=TwoWay}"
-                     GotFocus="NumberOfTicketsToPrintTextBoxGotFocusHandler" />
+                     GotFocus="TextBoxGotFocusHandler" />
             <Label Grid.Row="1" 
                    Grid.Column="0"
                    Content="El ultimo ticket impreso fue el" />
-            <TextBlock Grid.Row="1" 
+            <TextBox Grid.Row="1" 
                        Grid.Column="1"
+                       TabIndex="2"
                        Text="{Binding LastPrintedNumber, Mode=TwoWay}"
+                       GotFocus="TextBoxGotFocusHandler"
                        VerticalAlignment="Center" />
             <Button Grid.Row="2" 
                     Grid.ColumnSpan="2" 
@@ -45,7 +47,7 @@
                     Height="50"
                     Width="200"
                     Name="PrintButton"
-                    TabIndex="2"
+                    TabIndex="3"
                     IsDefault="True"
                     Command="{Binding PrintCommand}" />
 

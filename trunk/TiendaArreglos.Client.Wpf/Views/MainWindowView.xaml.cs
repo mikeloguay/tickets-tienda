@@ -47,7 +47,7 @@ namespace TiendaArreglos.Client.Wpf.Views
             InitializeFocus();
         }
 
-        private void NumberOfTicketsToPrintTextBoxGotFocusHandler(object sender, RoutedEventArgs e)
+        private void TextBoxGotFocusHandler(object sender, RoutedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
 
